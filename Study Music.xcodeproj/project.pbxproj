@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6500419A2AEE8BC8009EA963 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650041992AEE8BC8009EA963 /* TimerView.swift */; };
+		6500419C2AEE8BD3009EA963 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6500419B2AEE8BD3009EA963 /* TimerModel.swift */; };
 		65046D1F2AD4478E005435D3 /* Signal to Noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65046D1E2AD4478E005435D3 /* Signal to Noise.mp3 */; };
 		651D9EA52AB0A3A900B67102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651D9EA42AB0A3A900B67102 /* ContentView.swift */; };
 		651D9EAE2AB0A3CB00B67102 /* Journey End.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 651D9EA62AB0A3C900B67102 /* Journey End.mp3 */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		650041992AEE8BC8009EA963 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		6500419B2AEE8BD3009EA963 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		65046D1E2AD4478E005435D3 /* Signal to Noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Signal to Noise.mp3"; sourceTree = "<group>"; };
 		651D9EA42AB0A3A900B67102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		651D9EA62AB0A3C900B67102 /* Journey End.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Journey End.mp3"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			children = (
 				65E9424C2A93978200B77B13 /* Study_MusicApp.swift */,
 				651D9EA42AB0A3A900B67102 /* ContentView.swift */,
+				650041992AEE8BC8009EA963 /* TimerView.swift */,
+				6500419B2AEE8BD3009EA963 /* TimerModel.swift */,
 				65813AA92AD846E100A0D7E9 /* AudioPlayerViews.swift */,
 				651D9EB82AB0BBE900B67102 /* AudioPlayerModel.swift */,
 				65E942502A93978400B77B13 /* Assets.xcassets */,
@@ -311,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6500419A2AEE8BC8009EA963 /* TimerView.swift in Sources */,
 				651D9EB92AB0BBE900B67102 /* AudioPlayerModel.swift in Sources */,
 				651D9EA52AB0A3A900B67102 /* ContentView.swift in Sources */,
+				6500419C2AEE8BD3009EA963 /* TimerModel.swift in Sources */,
 				65E9424D2A93978200B77B13 /* Study_MusicApp.swift in Sources */,
 				65813AAA2AD846E100A0D7E9 /* AudioPlayerViews.swift in Sources */,
 			);
