@@ -16,7 +16,7 @@ struct Song: Identifiable {
     let copyrightInfo: String
 }
 
-class AudioManagerPlanet: NSObject, ObservableObject, AVAudioPlayerDelegate {
+class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     //    static let shared = AudioManager()
     private var currentIndex = 0
     @Published var audioPlayer : AVAudioPlayer?
