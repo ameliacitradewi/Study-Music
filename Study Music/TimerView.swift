@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TimerView: View {
+    
     var body: some View {
-        Text("Test Commit")
+       Text("Hello!")
     }
 }
 
