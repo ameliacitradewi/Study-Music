@@ -18,7 +18,7 @@ struct TimerViews: View {
                 .font(.system(size: 50, weight: .medium, design: .rounded))
                 .alert("Timer done!", isPresented: $vm.showingAlert) {
                     Button("Continue", role: .cancel) {
-                        //
+                        // more code here
                     }
                 }
             
@@ -50,3 +50,7 @@ struct TimerViews_Previews: PreviewProvider {
         TimerViews()
     }
 }
+
+
+
+// notes: timer masih berupa menit, belum ada jam. Audio belum bisa auto looping.
