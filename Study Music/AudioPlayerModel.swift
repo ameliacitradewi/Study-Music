@@ -98,13 +98,6 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
         return String(format: "%02d: %02d", minutes, seconds)
     }
     
-    func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-            guard let self = self, self.isPlaying else { return }
-            self.currentTime = self.audioPlayer?.currentTime ?? 0
-        }
-    }
-    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         isPlaying = true
         currentTime = 0
