@@ -8,8 +8,8 @@
 import SwiftUI
 import AVFoundation
 
-struct AudioPlayerPlanet: View {
-    @ObservedObject var audioManager = AudioManagerPlanet()
+struct AudioPlayerViews: View {
+    @ObservedObject var audioManager = AudioPlayerModel()
     @State private var showingCredits = false
     
     var body: some View {
@@ -98,6 +98,6 @@ struct AudioPlayerPlanet: View {
 
 struct AudioPlayer_Previews: PreviewProvider {
     static var previews: some View {
-        AudioPlayerPlanet()
+        AudioPlayerViews()
     }
 }

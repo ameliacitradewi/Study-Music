@@ -16,7 +16,7 @@ struct Song: Identifiable {
     let copyrightInfo: String
 }
 
-class AudioManagerPlanet: NSObject, ObservableObject, AVAudioPlayerDelegate {
+class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     //    static let shared = AudioManager()
     private var currentIndex = 0
     @Published var audioPlayer : AVAudioPlayer?
@@ -96,13 +96,6 @@ class AudioManagerPlanet: NSObject, ObservableObject, AVAudioPlayerDelegate {
         let minutes = Int(timeInterval / 60)
         let seconds = Int(timeInterval.truncatingRemainder(dividingBy: 60))
         return String(format: "%02d: %02d", minutes, seconds)
-    }
-    
-    func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-            guard let self = self, self.isPlaying else { return }
-            self.currentTime = self.audioPlayer?.currentTime ?? 0
-        }
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
