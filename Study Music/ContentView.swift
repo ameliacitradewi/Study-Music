@@ -18,11 +18,11 @@ struct ContentView: View {
                         .aspectRatio(geometry.size, contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
                     
-                    VStack {
-                        Text("Choose a Playlist")
+                    VStack(alignment: .center) {
+                        Text("Set the timer!")
                             .font(.largeTitle)
                             .bold()
-                        Text("Choose the playlist you want to play!")
+                        Text("make at maximum 25 minutes to keep you focusing in studies!")
                         
                     }
                     .foregroundColor(.white)
