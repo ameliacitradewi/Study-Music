@@ -60,14 +60,13 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     func playNextSong() {
-        currentIndex += 1
-        if currentIndex >= songs.count {
-            currentSong = songs[0]
-            stopAudio()
+        if currentIndex == songs.count - 1 {
+            currentIndex = 0 // Kembali ke lagu pertama jika mencapai akhir
         } else {
-            currentSong = songs[currentIndex]
-            setupAudio()
+            currentIndex += 1
         }
+        currentSong = songs[currentIndex]
+        setupAudio()
     }
     
     func stopAudio() {
