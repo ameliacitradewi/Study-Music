@@ -26,7 +26,7 @@ struct CountdownTimerView: View {
             
             if isPickerVisible {
                 HStack {
-                    Picker("Jam", selection: $hours) {
+                    Picker("Hours", selection: $hours) {
                         ForEach(0..<24, id: \.self) { hour in
                             Text("\(hour)")
                         }
@@ -35,7 +35,7 @@ struct CountdownTimerView: View {
                     .clipped()
                     .pickerStyle(WheelPickerStyle())
                     
-                    Picker("Menit", selection: $minutes) {
+                    Picker("Minutes", selection: $minutes) {
                         ForEach(0..<60, id: \.self) { minute in
                             Text("\(minute)")
                         }
@@ -44,7 +44,7 @@ struct CountdownTimerView: View {
                     .clipped()
                     .pickerStyle(WheelPickerStyle())
                     
-                    Picker("Detik", selection: $seconds) {
+                    Picker("Seconds", selection: $seconds) {
                         ForEach(0..<60, id: \.self) { second in
                             Text("\(second)")
                         }

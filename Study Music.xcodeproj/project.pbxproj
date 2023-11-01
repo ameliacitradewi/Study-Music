@@ -142,8 +142,8 @@
 			children = (
 				65E9424C2A93978200B77B13 /* Study_MusicApp.swift */,
 				651D9EA42AB0A3A900B67102 /* ContentView.swift */,
-				65813AA92AD846E100A0D7E9 /* AudioPlayerViews.swift */,
 				65CC28222AF29E91001E4531 /* TimerViews.swift */,
+				65813AA92AD846E100A0D7E9 /* AudioPlayerViews.swift */,
 				651D9EB82AB0BBE900B67102 /* AudioPlayerModel.swift */,
 				65E942502A93978400B77B13 /* Assets.xcassets */,
 				65E942522A93978400B77B13 /* Preview Content */,
