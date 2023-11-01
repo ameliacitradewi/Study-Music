@@ -10,20 +10,29 @@ import AVFoundation
 
 struct ContentView: View {
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView {
-                VStack {
-                    VStack(alignment: .center) {
-                        Text("Set the timer!")
-                            .font(.largeTitle)
-                            .bold()
+        NavigationView {
+            GeometryReader { geometry in
+                Image("BgColor")
+                    .resizable()
+                    .aspectRatio(geometry.size, contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                    .overlay(
                         
-                        TimerViews()
-                    }
-                }
-                .foregroundColor(.black)
+                        VStack {
+                            Text("Set up your timer!")
+                                .font(.largeTitle)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.bottom, 20)
+                            
+                            TimerViews()
+                        }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                            .foregroundColor(.white)
+                    )
             }
-            
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }

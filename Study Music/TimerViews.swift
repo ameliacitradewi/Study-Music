@@ -29,6 +29,7 @@ struct TimerViews: View {
                     Picker("Hours", selection: $hours) {
                         ForEach(0..<24, id: \.self) { hour in
                             Text("\(hour)")
+                                .foregroundColor(.white)
                         }
                     }
                     .frame(width: 100)
@@ -38,6 +39,7 @@ struct TimerViews: View {
                     Picker("Minutes", selection: $minutes) {
                         ForEach(0..<60, id: \.self) { minute in
                             Text("\(minute)")
+                                .foregroundColor(.white)
                         }
                     }
                     .frame(width: 100)
@@ -48,6 +50,7 @@ struct TimerViews: View {
                     Picker("Seconds", selection: $seconds) {
                         ForEach(0..<60, id: \.self) { second in
                             Text("\(second)")
+                                .foregroundColor(.white)
                         }
                     }
                     .frame(width: 100)
