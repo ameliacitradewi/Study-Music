@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountdownTimerView: View {
+struct TimerViews: View {
     @State private var hours = 0
     @State private var minutes = 0
     @State private var seconds = 0
@@ -33,7 +33,7 @@ struct CountdownTimerView: View {
                     }
                     .frame(width: 100)
                     .clipped()
-                    .pickerStyle(WheelPickerStyle())
+                    .pickerStyle(WheelPickerStyle())                    
                     
                     Picker("Minutes", selection: $minutes) {
                         ForEach(0..<60, id: \.self) { minute in
@@ -44,6 +44,7 @@ struct CountdownTimerView: View {
                     .clipped()
                     .pickerStyle(WheelPickerStyle())
                     
+                    
                     Picker("Seconds", selection: $seconds) {
                         ForEach(0..<60, id: \.self) { second in
                             Text("\(second)")
@@ -52,6 +53,7 @@ struct CountdownTimerView: View {
                     .frame(width: 100)
                     .clipped()
                     .pickerStyle(WheelPickerStyle())
+                    
                 }
                 .padding()
             }
@@ -111,7 +113,7 @@ struct CountdownTimerView: View {
 
 struct CountdownTimerView_Previews: PreviewProvider {
     static var previews: some View {
-        CountdownTimerView()
+        TimerViews()
     }
 }
 

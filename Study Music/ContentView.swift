@@ -12,21 +12,16 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
-                ZStack {
-                    Image("BgColor")
-                        .resizable()
-                        .aspectRatio(geometry.size, contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-                    
+                VStack {
                     VStack(alignment: .center) {
                         Text("Set the timer!")
                             .font(.largeTitle)
                             .bold()
-                        Text("make at maximum 25 minutes to keep you focusing in studies!")
                         
+                        TimerViews()
                     }
-                    .foregroundColor(.white)
                 }
+                .foregroundColor(.black)
             }
             
         }
