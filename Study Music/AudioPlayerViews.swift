@@ -10,7 +10,6 @@ import AVFoundation
 
 struct AudioPlayerViews: View {
     @ObservedObject var audioManager = AudioPlayerModel()
-    @ObservedObject var viewModel = TimerViewModel()
     @State private var showingCredits = false
     
     var body: some View {
@@ -41,7 +40,11 @@ struct AudioPlayerViews: View {
                             .padding(.leading)
                             .padding(.trailing)
                     }
-                }                               
+                }
+                
+                HStack {
+                    TimerViews(viewModel: audioManager.timerViewModel, audioManager: audioManager)
+                }
                 
                 Spacer()
                 

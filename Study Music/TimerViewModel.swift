@@ -26,6 +26,7 @@ class TimerViewModel: ObservableObject {
                     self.seconds -= 1
                 } else if self.minutes > 0 {
                     self.minutes -= 1
+                    
                     self.seconds = 59
                 } else if self.hours > 0 {
                     self.hours -= 1

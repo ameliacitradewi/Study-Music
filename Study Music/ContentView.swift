@@ -6,24 +6,20 @@
 //
 
 import SwiftUI
-import AVFoundation
 
 struct ContentView: View {
+    @StateObject var timerViewModel = TimerViewModel()
+    
     var body: some View {
-            NavigationView {
-                VStack {
-                    VStack(alignment: .center) {
-                        Text("Set the timer!")
-                            .font(.largeTitle)
-                            .bold()
-                        
-                        TimerViews()
-                    }
+        NavigationView {
+            VStack {
+                VStack(alignment: .center) {
+                   
                 }
             }
-            .foregroundColor(.black)
-            .background(Color.black)
-        
+        }
+        .foregroundColor(.black)
+        .background(Color.black)
     }
 }
 

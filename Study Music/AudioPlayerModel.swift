@@ -17,7 +17,7 @@ struct Song: Identifiable {
 }
 
 class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
-    //    static let shared = AudioManager()
+    @Published var timerViewModel = TimerViewModel()
     private var currentIndex = 0
     @Published var audioPlayer : AVAudioPlayer?
     @Published var isPlaying = true
@@ -57,6 +57,12 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
                 print("Error: \(error)")
             }
         }
+        
+        timerViewModel.hours = 0
+        timerViewModel.minutes = 0
+        timerViewModel.seconds = 0
+        timerViewModel.isRunning = false
+        
     }
     
     func playNextSong() {

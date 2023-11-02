@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimerViews: View {
     @ObservedObject var viewModel = TimerViewModel()
-//    @ObservedObject var audioManager = AudioPlayerModel()
+    @ObservedObject var audioManager = AudioPlayerModel()
     
     var body: some View {
         VStack {
