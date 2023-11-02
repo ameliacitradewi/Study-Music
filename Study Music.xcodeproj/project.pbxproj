@@ -22,6 +22,7 @@
 		65813AAA2AD846E100A0D7E9 /* AudioPlayerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65813AA92AD846E100A0D7E9 /* AudioPlayerViews.swift */; };
 		65CC281B2AF29589001E4531 /* alarmbeeper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65CC281A2AF29589001E4531 /* alarmbeeper.mp3 */; };
 		65CC28232AF29E91001E4531 /* TimerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CC28222AF29E91001E4531 /* TimerViews.swift */; };
+		65D8B8072AF3CA1A0050C786 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8B8062AF3CA1A0050C786 /* TimerViewModel.swift */; };
 		65E9424D2A93978200B77B13 /* Study_MusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E9424C2A93978200B77B13 /* Study_MusicApp.swift */; };
 		65E942512A93978400B77B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E942502A93978400B77B13 /* Assets.xcassets */; };
 		65E942542A93978400B77B13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E942532A93978400B77B13 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		65813AA92AD846E100A0D7E9 /* AudioPlayerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViews.swift; sourceTree = "<group>"; };
 		65CC281A2AF29589001E4531 /* alarmbeeper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarmbeeper.mp3; sourceTree = "<group>"; };
 		65CC28222AF29E91001E4531 /* TimerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViews.swift; sourceTree = "<group>"; };
+		65D8B8062AF3CA1A0050C786 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		65E942492A93978100B77B13 /* Study Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E9424C2A93978200B77B13 /* Study_MusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study_MusicApp.swift; sourceTree = "<group>"; };
 		65E942502A93978400B77B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				65E9424C2A93978200B77B13 /* Study_MusicApp.swift */,
 				651D9EA42AB0A3A900B67102 /* ContentView.swift */,
 				65CC28222AF29E91001E4531 /* TimerViews.swift */,
+				65D8B8062AF3CA1A0050C786 /* TimerViewModel.swift */,
 				65813AA92AD846E100A0D7E9 /* AudioPlayerViews.swift */,
 				651D9EB82AB0BBE900B67102 /* AudioPlayerModel.swift */,
 				65E942502A93978400B77B13 /* Assets.xcassets */,
@@ -322,6 +325,7 @@
 				651D9EA52AB0A3A900B67102 /* ContentView.swift in Sources */,
 				65E9424D2A93978200B77B13 /* Study_MusicApp.swift in Sources */,
 				65CC28232AF29E91001E4531 /* TimerViews.swift in Sources */,
+				65D8B8072AF3CA1A0050C786 /* TimerViewModel.swift in Sources */,
 				65813AAA2AD846E100A0D7E9 /* AudioPlayerViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,8 +22,7 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.black)
-            .background(Color.black
-        )
+            .background(Color.black)
         
     }
 }

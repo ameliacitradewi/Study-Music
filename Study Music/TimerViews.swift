@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct TimerViews: View {
-    @State private var hours = 0
-    @State private var minutes = 0
-    @State private var seconds = 0
-    @State private var isRunning = false
-    @State private var timer: Timer?
-    @State private var isPickerVisible = true
+    @ObservedObject var viewModel = TimerViewModel()
     
     var body: some View {
         VStack {
             
             HStack {
-                Text(String(format: "%02d:%02d:%02d", hours, minutes, seconds))
+                Text(String(format: "%02d:%02d:%02d", viewModel.hours, viewModel.minutes, viewModel.seconds))
                     .font(.system(size: 50, weight: .medium, design: .rounded))
                     .padding()
             }
             
-            if isPickerVisible {
+            if viewModel.isPickerVisible {
                 HStack {
-                    Picker("Hours", selection: $hours) {
+                    Picker("Hours", selection: $viewModel.hours) {
                         ForEach(0..<24, id: \.self) { hour in
                             Text("\(hour)")
                                 .foregroundColor(.white)
@@ -36,7 +31,7 @@ struct TimerViews: View {
                     .clipped()
                     .pickerStyle(WheelPickerStyle())                    
                     
-                    Picker("Minutes", selection: $minutes) {
+                    Picker("Minutes", selection: $viewModel.minutes) {
                         ForEach(0..<60, id: \.self) { minute in
                             Text("\(minute)")
                                 .foregroundColor(.white)
@@ -47,7 +42,7 @@ struct TimerViews: View {
                     .pickerStyle(WheelPickerStyle())
                     
                     
-                    Picker("Seconds", selection: $seconds) {
+                    Picker("Seconds", selection: $viewModel.seconds) {
                         ForEach(0..<60, id: \.self) { second in
                             Text("\(second)")
                                 .foregroundColor(.white)
@@ -62,59 +57,59 @@ struct TimerViews: View {
             }
             
             HStack {
-                Button(isRunning ? "Pause" : "Start") {
-                    if isRunning {
+                Button(viewModel.isRunning ? "Pause" : "Start") {
+                    if viewModel.isRunning {
                         pauseTimer()
                     } else {
                         startTimer()
-                        isPickerVisible = false
+                        viewModel.isPickerVisible = false
                     }
                 }
                 Button("Reset") {
                     resetTimer()
-                    isPickerVisible = true
-                    hours = 0
-                    minutes = 0
-                    seconds = 0
+                    viewModel.isPickerVisible = true
+                    viewModel.hours = 0
+                    viewModel.minutes = 0
+                    viewModel.seconds = 0
                 }
-                .disabled(!isRunning)
+                .disabled(!viewModel.isRunning)
             }
         }
     }
     
     func startTimer() {
-        isRunning = true
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if hours == 0, minutes == 0, seconds == 0 {
+        viewModel.isRunning = true
+        viewModel.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if viewModel.hours == 0, viewModel.minutes == 0, viewModel.seconds == 0 {
                 resetTimer()
             } else {
-                if seconds > 0 {
-                    seconds -= 1
-                } else if minutes > 0 {
-                    minutes -= 1
-                    seconds = 59
-                } else if hours > 0 {
-                    hours -= 1
-                    minutes = 59
-                    seconds = 59
+                if viewModel.seconds > 0 {
+                    viewModel.seconds -= 1
+                } else if viewModel.minutes > 0 {
+                    viewModel.minutes -= 1
+                    viewModel.seconds = 59
+                } else if viewModel.hours > 0 {
+                    viewModel.hours -= 1
+                    viewModel.minutes = 59
+                    viewModel.seconds = 59
                 }
             }
         }
     }
     
     func pauseTimer() {
-        isRunning = false
-        timer?.invalidate()
+        viewModel.isRunning = false
+        viewModel.timer?.invalidate()
     }
     
     func resetTimer() {
-        isRunning = false
-        timer?.invalidate()
-        isPickerVisible = true
+        viewModel.isRunning = false
+        viewModel.timer?.invalidate()
+        viewModel.isPickerVisible = true
     }
 }
 
-struct CountdownTimerView_Previews: PreviewProvider {
+struct TimerViews_Previews: PreviewProvider {
     static var previews: some View {
         TimerViews()
     }
