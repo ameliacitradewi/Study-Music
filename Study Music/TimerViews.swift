@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimerViews: View {
     @ObservedObject var viewModel = TimerViewModel()
+//    @ObservedObject var audioManager = AudioPlayerModel()
     
     var body: some View {
         VStack {
@@ -59,14 +60,14 @@ struct TimerViews: View {
             HStack {
                 Button(viewModel.isRunning ? "Pause" : "Start") {
                     if viewModel.isRunning {
-                        pauseTimer()
+                        viewModel.pauseTimer()
                     } else {
-                        startTimer()
+                        viewModel.startTimer()
                         viewModel.isPickerVisible = false
                     }
                 }
                 Button("Reset") {
-                    resetTimer()
+                    viewModel.resetTimer()
                     viewModel.isPickerVisible = true
                     viewModel.hours = 0
                     viewModel.minutes = 0
@@ -75,37 +76,6 @@ struct TimerViews: View {
                 .disabled(!viewModel.isRunning)
             }
         }
-    }
-    
-    func startTimer() {
-        viewModel.isRunning = true
-        viewModel.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if viewModel.hours == 0, viewModel.minutes == 0, viewModel.seconds == 0 {
-                resetTimer()
-            } else {
-                if viewModel.seconds > 0 {
-                    viewModel.seconds -= 1
-                } else if viewModel.minutes > 0 {
-                    viewModel.minutes -= 1
-                    viewModel.seconds = 59
-                } else if viewModel.hours > 0 {
-                    viewModel.hours -= 1
-                    viewModel.minutes = 59
-                    viewModel.seconds = 59
-                }
-            }
-        }
-    }
-    
-    func pauseTimer() {
-        viewModel.isRunning = false
-        viewModel.timer?.invalidate()
-    }
-    
-    func resetTimer() {
-        viewModel.isRunning = false
-        viewModel.timer?.invalidate()
-        viewModel.isPickerVisible = true
     }
 }
 
