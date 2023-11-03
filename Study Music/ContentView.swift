@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var isRunning = false
     @State private var isPickerVisible = true
     @State private var timer: Timer?
+    @State var jump = false
     
     var body: some View {
         
