@@ -11,9 +11,9 @@ struct ContentView: View {
     var hours = Array(0...23)
     var minutes = Array(0...59)
     var seconds = Array(0...59)
-    @State private var selectedHours = 1
-    @State private var selectedMins = 10
-    @State private var selectedSecs = 10
+    @State private var selectedHours = 0
+    @State private var selectedMins = 0
+    @State private var selectedSecs = 5
     @State private var isRunning = false
     @State private var isPickerVisible = true
     @State private var timer: Timer?
@@ -79,24 +79,22 @@ struct ContentView: View {
     }
     
     func restart() {
-        isRunning = false
         timer?.invalidate()
-        selectedHours = 1
-        selectedMins = 10
-        selectedSecs = 10
+        isRunning = false
         isPickerVisible = true
+        selectedHours = 0
+        selectedMins = 0
+        selectedSecs = 0
     }
     
     func start() {
         isRunning = true
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            selectedSecs -= 1 }
-        
-        if calculate() <= 0 {
-            timer?.invalidate()
-            selectedSecs = 0
-            selectedMins = 0
-            selectedHours = 0
+            selectedSecs -= 1
+            
+            if calculate() <= 0 {
+                restart()
+            }
         }
     }
     
@@ -106,9 +104,9 @@ struct ContentView: View {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
