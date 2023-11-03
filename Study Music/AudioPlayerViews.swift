@@ -42,10 +42,6 @@ struct AudioPlayerViews: View {
                     }
                 }
                 
-                HStack {
-                    TimerViews(viewModel: audioManager.timerViewModel, audioManager: audioManager)
-                }
-                
                 Spacer()
                 
                 HStack (spacing: 20) {
