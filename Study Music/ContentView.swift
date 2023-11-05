@@ -19,6 +19,7 @@ struct ContentView: View {
     @State private var isPickerVisible = true
     @State private var timer: Timer?
     @State private var audioPlayer = AudioPlayerModel()
+    @State private var audioViews = AudioPlayerViews()
     
     var body: some View {
         
@@ -89,6 +90,7 @@ struct ContentView: View {
         selectedHours = 0
         selectedMins = 0
         selectedSecs = 0
+        audioPlayer.pauseAudio()
     }
     
     func start() {
