@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
     var hours = Array(0...23)
@@ -17,7 +18,7 @@ struct ContentView: View {
     @State private var isRunning = false
     @State private var isPickerVisible = true
     @State private var timer: Timer?
-    @State var jump = false
+    @State private var audioPlayer = AudioPlayerModel()
     
     var body: some View {
         
@@ -56,14 +57,17 @@ struct ContentView: View {
                 Button(isRunning ? "Pause" : "Start") {
                     if isRunning {
                         pause()
+                        audioPlayer.pauseAudio()
                     } else {
                         start()
                         isPickerVisible = false
+                        audioPlayer.playAudio()
                     }
                 }
                 
                 Button {
                     restart()
+                    audioPlayer.setupAudio()
                 } label: {
                     Text("Restart")
                 }

@@ -20,7 +20,7 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
     private var currentIndex = 0
     @Published var audioPlayer : AVAudioPlayer?
-    @Published var isPlaying = true
+    @Published var isPlaying = false
     @Published var currentTime: TimeInterval = 0
     @Published var songs: [Song] = [
         Song(songName: "Signal to Noise", composer: "Scott Buckley", audioFileName: "Signal to Noise.mp3", image: "1", copyrightInfo: "www.scottbuckley.com.au Music promoted by https://www.chosic.com/free-music/all/ Creative Commons CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ Image: https://www.pxfuel.com/"),
@@ -52,6 +52,24 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: audioFileURL)
                 audioPlayer?.delegate = self
+                audioPlayer?.prepareToPlay()
+                isPlaying = false
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func autoRepeat() {
+        guard let currentSong = currentSong else { return }
+        if let audioPlayer = audioPlayer {
+            audioPlayer.stop()
+            audioPlayer.delegate = nil
+        }
+        if let audioFileURL = Bundle.main.url(forResource: currentSong.audioFileName, withExtension: nil) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: audioFileURL)
+                audioPlayer?.delegate = self
                 audioPlayer?.play()
             } catch {
                 print("Error: \(error)")
@@ -66,7 +84,7 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
             currentIndex += 1
         }
         currentSong = songs[currentIndex]
-        setupAudio()
+        autoRepeat()
     }
     
     func stopAudio() {
@@ -80,7 +98,7 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
             currentIndex = songs.count - 1
         }
         currentSong = songs[currentIndex]
-        setupAudio()
+        autoRepeat()
     }
     
     func playAudio() {
