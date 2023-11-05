@@ -19,60 +19,71 @@ struct ContentView: View {
     @State private var isPickerVisible = true
     @State private var timer: Timer?
     @State private var audioPlayer = AudioPlayerModel()
-    @State private var audioViews = AudioPlayerViews()
     
     var body: some View {
         
-        VStack {
-            if isPickerVisible {
-                HStack {
-                    Picker("Hour", selection: self.$selectedHours) {
-                        ForEach(0..<24) {
-                            Text("\(self.hours[$0]) hour")
-                        }
-                    }
-                    
-                    Picker("Min", selection: self.$selectedMins) {
-                        ForEach(0..<60) {
-                            Text("\(self.minutes[$0]) min")
-                        }
-                    }
-                    
-                    Picker("Sec", selection: self.$selectedSecs) {
-                        ForEach(0..<60) {
-                            Text("\(self.seconds[$0]) sec")
-                        }
-                    }
-                }
-            }
+        ZStack {
+            //MARK: add background
+            Image("BgColor")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
             
-            //MARK: Timer countdown preview
-            HStack {
-                Text(String(format: "%02d:%02d:%02d", calculate()/3600, (calculate()/60)%60, calculate()%60))
-                    .font(.system(size: 50, weight: .medium, design: .rounded))
-                    .padding()
-            }
-            
-            //MARK: Button start or restart timer
-            HStack {
-                Button(isRunning ? "Pause" : "Start") {
-                    if isRunning {
-                        pause()
-                        audioPlayer.pauseAudio()
-                    } else {
-                        start()
-                        isPickerVisible = false
-                        audioPlayer.playAudio()
+            VStack {
+                if isPickerVisible {
+                    HStack {
+                        Picker("Hour", selection: self.$selectedHours) {
+                            ForEach(0..<24) {
+                                Text("\(self.hours[$0]) hour")
+                            }
+                        }
+                        
+                        Picker("Min", selection: self.$selectedMins) {
+                            ForEach(0..<60) {
+                                Text("\(self.minutes[$0]) min")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        
+                        Picker("Sec", selection: self.$selectedSecs) {
+                            ForEach(0..<60) {
+                                Text("\(self.seconds[$0]) sec")
+                                    .foregroundColor(.white)
+                            }
+                        }
                     }
+                    .accentColor(.white)
                 }
                 
-                Button {
-                    restart()
-                    audioPlayer.setupAudio()
-                } label: {
-                    Text("Restart")
+                //MARK: Timer countdown preview
+                HStack {
+                    Text(String(format: "%02d:%02d:%02d", calculate()/3600, (calculate()/60)%60, calculate()%60))
+                        .font(.system(size: 50, weight: .medium, design: .rounded))
+                        .padding()
+                }
+                
+                //MARK: Button start or restart timer
+                HStack {
+                    Button(isRunning ? "Pause" : "Start") {
+                        if isRunning {
+                            pause()
+                            audioPlayer.pauseAudio()
+                        } else {
+                            start()
+                            isPickerVisible = false
+                            audioPlayer.playAudio()
+                        }
+                    }
+                    
+                    Button {
+                        restart()
+                        audioPlayer.setupAudio()
+                    } label: {
+                        Text("Restart")
+                    }
                 }
             }
+            .foregroundColor(.white)
         }
         
     }
