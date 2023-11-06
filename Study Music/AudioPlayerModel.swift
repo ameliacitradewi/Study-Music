@@ -17,7 +17,7 @@ struct Song: Identifiable {
 }
 
 class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
-
+    @Published private var timerView = ContentView()
     private var currentIndex = 0
     @Published var audioPlayer : AVAudioPlayer?
     @Published var isPlaying = false
@@ -103,10 +103,12 @@ class AudioPlayerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     func playAudio() {
         audioPlayer?.play()
+        timerView.start()
     }
     
     func pauseAudio() {
         audioPlayer?.pause()
+        timerView.pause()
     }
     
     func formatTime(_ timeInterval: TimeInterval) -> String {
